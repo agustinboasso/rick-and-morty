@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: [...state.myFavorites, action.payload],
-        allCharacters: [...state.allCharacters, action.payload],
+        allCharactersFav: [...state.allCharactersFav, action.payload],
       };
 
     case "REMOVE_FAV":

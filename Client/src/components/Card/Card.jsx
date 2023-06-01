@@ -27,12 +27,9 @@ const Card = ({
   };
 
   useEffect(() => {
-    myFavorites.forEach((fav) => {
-      if (fav.id === id) {
-        setIsFav(true);
-      }
-    });
-  }, [myFavorites]);
+    const isCharacterInFavorites = myFavorites.some((fav) => fav.id === +id);
+    setIsFav(isCharacterInFavorites);
+  }, [myFavorites, id]);
 
   return (
     <div className="card">

@@ -15,14 +15,15 @@ const postFav = (req, res) => {
 
   myFavorites.push(newFavorite);
 
-  res.json(newFavorite);
+  return res.json(newFavorite);
 };
 
 const deleteFav = (req, res) => {
   try {
     const { id } = req.params;
 
-    myFavorites.filter((fav) => fav.id !== +id);
+    myFavorites = myFavorites.filter((fav) => fav.id !== +id);
+
     return res.status(200).json(myFavorites);
   } catch (error) {
     return res.status(500).json({ error: error.message });
